@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 //import { start, up, down, left, right} from './action-creators';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import DND from './DND';
 
 export class Controls extends React.Component {
@@ -21,7 +21,9 @@ export class Controls extends React.Component {
         <div>
         <Board squares={this.state.squares} />
         </div>
+
             <DND />
+
             <button className='Action'
             onClick={()=> {
                 const squares = this.state.squares.slice();
@@ -95,12 +97,11 @@ export class Controls extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     console.log('STATE', state)
-//     return {
-//         squares: state.squares,
-//         playerPosition: state.playerPosition
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        squares: state.squares,
+        playerPosition: state.playerPosition
+    }
+}
 
-// export default connect(mapStateToProps)(DND)
+export default connect(mapStateToProps)(Controls)

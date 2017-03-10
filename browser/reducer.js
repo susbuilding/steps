@@ -32,5 +32,5 @@ function BoardReducer (state = initialState, action) {
 }
 
 export default combineReducers({
-    BoardReducer: BoardReducer
+    board: BoardReducer
 })
