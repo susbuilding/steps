@@ -70,7 +70,6 @@ class DND extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('STATE', state)
     return {
         squares: state.squares,
         playerPosition: state.playerPosition

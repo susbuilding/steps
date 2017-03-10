@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Board from './Board';
-//import { start, up, down, left, right} from './action-creators';
+import { start, up, down, left, right} from './action-creators';
 import { connect } from 'react-redux';
 import DND from './DND';
 
-export class Controls extends React.Component {
+class Controls extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -98,6 +98,7 @@ export class Controls extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log('STATE', state)
     return {
         squares: state.squares,
         playerPosition: state.playerPosition

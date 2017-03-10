@@ -5,6 +5,7 @@ let initialState = {
     squares: Array(35).fill(null),
     playerPosition: 0
 }
+
 function BoardReducer (state = initialState, action) {
     switch (action.type) {
         case 'START':{
