@@ -7,10 +7,10 @@ import DND from './DND';
 class Controls extends React.Component {
     constructor(){
         super();
-        this.state = {
-            squares: Array(35).fill(null),
-            playerPosition: 0
-        };
+        // this.props = {
+        //     squares: Array(35).fill(null),
+        //     playerPosition: 0
+        // };
 
     }
     render(){
@@ -24,7 +24,7 @@ class Controls extends React.Component {
 
             <button className='Action'
             onClick={()=> {
-                const squares = this.state.squares.slice();
+                const squares = this.props.squares.slice();
                 squares[0] = '🐼';
                 this.setState({squares: squares})
             }}
@@ -34,10 +34,10 @@ class Controls extends React.Component {
             <button
                 className='Action'
                 onClick={()=>{
-                let current = this.state.playerPosition;
+                let current = this.props.playerPosition;
                 let newCurrent;
                 (current - 6) >= 0 ? newCurrent = (current - 6) : newCurrent = current;
-                const squares = this.state.squares.slice(); //copies the array
+                const squares = this.props.squares.slice(); //copies the array
                 squares[current] = '';
                 this.setState({playerPosition: newCurrent})
                 squares[newCurrent] = '🐼';
@@ -47,10 +47,10 @@ class Controls extends React.Component {
             <button
                 className='Action'
                 onClick={()=>{
-                let current = this.state.playerPosition;
+                let current = this.props.playerPosition;
                 let newCurrent;
                 (current + 6) <= 35 ? newCurrent = (current + 6) : newCurrent = current;
-                const squares = this.state.squares.slice(); //copies the array
+                const squares = this.props.squares.slice(); //copies the array
                 squares[current] = '';
                 this.setState({playerPosition: newCurrent})
                 squares[newCurrent] = '🐼';
@@ -60,10 +60,10 @@ class Controls extends React.Component {
             <button
                 className='Action'
                 onClick={()=>{
-                let current = this.state.playerPosition;
+                let current = this.props.playerPosition;
                 let newCurrent;
                 (current - 1) >= 0 ? newCurrent = (current - 1) : newCurrent = current;
-                const squares = this.state.squares.slice(); //copies the array
+                const squares = this.props.squares.slice(); //copies the array
                 squares[current] = '';
                 this.setState({playerPosition: newCurrent})
                 squares[newCurrent] = '🐼';
@@ -73,10 +73,10 @@ class Controls extends React.Component {
             <button
                 className='Action'
                 onClick={()=>{
-                let current = this.state.playerPosition;
+                let current = this.props.playerPosition;
                 let newCurrent;
                 (current + 1) <= 35 ? newCurrent = (current + 1) : newCurrent = current;
-                const squares = this.state.squares.slice(); //copies the array
+                const squares = this.props.squares.slice(); //copies the array
                 squares[current] = '';
                 this.setState({playerPosition: newCurrent})
                 squares[newCurrent] = '🐼';

@@ -33,15 +33,16 @@ function PositionReducer (state = positionInitialState, action) {
 }
 
 function SquaresReducer (state = squaresInitialState, action) {
-    let newState = Object.assign({}, state)
+    //let newState = Object.assign({}, state)
 
     switch (action.type) {
         case 'RESET':{
-           newState.squares = action.squares
-            return newState
+           return action.squares
+            //return newState
         }
         default: {
-            return newState
+            //return newState
+            return state
         }
     }
 }
