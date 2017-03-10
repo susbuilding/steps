@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import Square from './Square';
 import Controls from './Controls';
 
+
 export default class Board extends React.Component {
-  constructor(){
-    super();
-  }
+  //gets the this.props.squares from Controls
+
   handleClick(i){
     //this will do something eventually for each square
   }
@@ -15,7 +15,7 @@ export default class Board extends React.Component {
              onClick={() => this.handleClick(i)} />;
   }
   render() {
-    const status = 'Next player: X';
+    //const status = 'Next player: X';
     return (
       <div>
         <div className="status">{status}</div>

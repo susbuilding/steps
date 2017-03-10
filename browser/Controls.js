@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Board from './Board';
-//import { start, up, down, left, right} from './action-creators';
+import { start, up, down, left, right} from './action-creators';
 import { connect } from 'react-redux';
+import Demo from './Demo';
 
 export class Controls extends React.Component {
     constructor(){
@@ -10,6 +11,8 @@ export class Controls extends React.Component {
             squares: Array(35).fill(null),
             playerPosition: 0
         };
+
+
     }
     render(){
         return (
@@ -17,6 +20,7 @@ export class Controls extends React.Component {
         <div>
         <Board squares={this.state.squares} />
         </div>
+            <Demo />
             <button className='Action'
             onClick={()=> {
                 const squares = this.state.squares.slice();
@@ -25,6 +29,17 @@ export class Controls extends React.Component {
             }}
             >START
             </button>
+
+            {/**<div className="form-group">
+            <label>Move Up</label>
+            <select className="form-control" id="sel1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            </div>**/}
+
             <button
                 className='Action'
                 onClick={()=>{
