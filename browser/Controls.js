@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Board from './Board';
 import { start, up, down, left, right} from './action-creators';
 import { connect } from 'react-redux';
-import Demo from './Demo';
+import DND from './DND';
 
 export class Controls extends React.Component {
     constructor(){
@@ -20,7 +20,7 @@ export class Controls extends React.Component {
         <div>
         <Board squares={this.state.squares} />
         </div>
-            <Demo />
+            <DND />
             <button className='Action'
             onClick={()=> {
                 const squares = this.state.squares.slice();
