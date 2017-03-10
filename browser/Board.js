@@ -15,7 +15,7 @@ export default class Board extends React.Component {
              onClick={() => this.handleClick(i)} />;
   }
   render() {
-    //const status = 'Next player: X';
+    const status = 'Click start to play!';
     return (
       <div>
         <div className="status">{status}</div>

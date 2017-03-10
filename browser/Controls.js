@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
-import { start, up, down, left, right} from './action-creators';
-import { connect } from 'react-redux';
+//import { start, up, down, left, right} from './action-creators';
+// import { connect } from 'react-redux';
 import DND from './DND';
 
 export class Controls extends React.Component {
@@ -15,6 +15,7 @@ export class Controls extends React.Component {
 
     }
     render(){
+        console.log('PROPS', this.props)
         return (
         <div>
         <div>
@@ -29,16 +30,6 @@ export class Controls extends React.Component {
             }}
             >START
             </button>
-
-            {/**<div className="form-group">
-            <label>Move Up</label>
-            <select className="form-control" id="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-            </div>**/}
 
             <button
                 className='Action'
@@ -104,11 +95,12 @@ export class Controls extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        squares: state.squares,
-        playerPosition: state.playerPosition
-    }
-}
+// const mapStateToProps = state => {
+//     console.log('STATE', state)
+//     return {
+//         squares: state.squares,
+//         playerPosition: state.playerPosition
+//     }
+// }
 
-export default connect(mapStateToProps)(Controls)
+// export default connect(mapStateToProps)(DND)

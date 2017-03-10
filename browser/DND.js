@@ -1,11 +1,12 @@
-import React     from 'react'
-import ReactDOM  from 'react-dom'
-import Draggable from './Draggable'
-import Droppable from './Droppable'
+import React, { Component } from 'react';
+import Draggable from './Draggable';
+import Droppable from './Droppable';
+import Controls from './Controls';
+import { connect } from 'react-redux';
 
-export default class DND extends React.Component {
-    constructor(props) {
-        super(props)
+class DND extends React.Component {
+    constructor() {
+        super()
         this.state = {
             draggable : ['MOVE UP','MOVE DOWN','MOVE LEFT','MOVE RIGHT'],
             dropped   : [],
@@ -34,20 +35,23 @@ export default class DND extends React.Component {
     render() {
         let draggable = this.state.draggable.map((title, index) => {
             return (
-                <li key={title}>
-                    <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
-                </li>
+                // <li key={title}>
+                //     <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
+                // </li>
+                <button key={title}>
+                <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
+                </button>
             )
         })
         let droppableStyle = {
-            height : '100px'
+            height : '200px'
         }
         if (this.state.hovering) droppableStyle.backgroundColor = 'pink'
         return (
             <div>
                 <ul>{draggable}</ul>
                 <div style={{border:'1px solid black', width:'400px',height:'200px', position:'relative'}}>
-                    <span style={{position:'absolute',float:'left'}}>Drop here...</span>
+                    <span style={{position:'absolute',float:'left',color:'gray'}}>Drop here...</span>
                     <Droppable
                         types={['item']}
                         style={droppableStyle}
@@ -64,3 +68,14 @@ export default class DND extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    console.log('STATE', state)
+    return {
+        squares: state.squares,
+        playerPosition: state.playerPosition
+    }
+}
+
+export default connect(mapStateToProps)(DND)
+
