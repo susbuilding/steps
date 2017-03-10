@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import Board from './Board'
+import React, { Component } from 'react';
+import Board from './Board';
+import { Controls } from './Controls';
 import Square from './Square';
 
 export default class Game extends React.Component {
@@ -7,7 +8,7 @@ export default class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Controls />
         </div>
         <div className="game-info">
           <div>{/* status */}</div>

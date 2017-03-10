@@ -1,28 +1,18 @@
 import React, {Component} from 'react';
 import Square from './Square';
+import Controls from './Controls';
 
 export default class Board extends React.Component {
   constructor(){
     super();
-    this.state = {
-      squares: Array(9).fill(null),
-      playerPosition: 0
-    };
   }
   handleClick(i){
-    this.state.squares[i] = '🐼'; //this mutates state so I should fix it
-    const squares = this.state.squares.slice(); //copies the array
-     squares[i] === '🐼' ? squares[i] = null : squares[i] = '🐼';
-    const newPosition = {playerPosition: i};
-    let current = this.state.playerPosition;
-    const newState = Object.assign({}, this.state, newPosition)
-    this.setState(newState);
-    squares[current] = '🐼';
+    //this will do something eventually for each square
   }
   renderSquare(i) {
     return <Square
-             value={this.state.squares[i]}
-             onClick={() => this.handleClick(i)}/>;
+             value={this.props.squares[i]}
+             onClick={() => this.handleClick(i)} />;
   }
   render() {
     const status = 'Next player: X';
@@ -76,67 +66,6 @@ export default class Board extends React.Component {
           {this.renderSquare(33)}
           {this.renderSquare(34)}
           {this.renderSquare(35)}
-        </div>
-        <div>
-          <button
-            className='Action'
-            onClick={()=>{
-              let current = this.state.playerPosition;
-              let newCurrent;
-              (current - 6) >= 0 ? newCurrent = (current - 6) : newCurrent = current;
-              const squares = this.state.squares.slice(); //copies the array
-              squares[current] = '';
-              this.setState({playerPosition: newCurrent})
-              squares[newCurrent] = '🐼';
-              this.setState({squares: squares})
-            }}
-            >Move Up</button>
-          <button
-            className='Action'
-            onClick={()=>{
-              let current = this.state.playerPosition;
-              let newCurrent;
-              (current + 6) <= 35 ? newCurrent = (current + 6) : newCurrent = current;
-              const squares = this.state.squares.slice(); //copies the array
-              squares[current] = '';
-              this.setState({playerPosition: newCurrent})
-              squares[newCurrent] = '🐼';
-              this.setState({squares: squares})
-            }}
-            >Move Down</button>
-          <button
-            className='Action'
-            onClick={()=>{
-              let current = this.state.playerPosition;
-              let newCurrent;
-              (current - 1) >= 0 ? newCurrent = (current - 1) : newCurrent = current;
-              const squares = this.state.squares.slice(); //copies the array
-              squares[current] = '';
-              this.setState({playerPosition: newCurrent})
-              squares[newCurrent] = '🐼';
-              this.setState({squares: squares})
-            }}
-            >Move Left</button>
-          <button
-            className='Action'
-            onClick={()=>{
-              let current = this.state.playerPosition;
-              let newCurrent;
-              (current + 1) <= 35 ? newCurrent = (current + 1) : newCurrent = current;
-              const squares = this.state.squares.slice(); //copies the array
-              squares[current] = '';
-              this.setState({playerPosition: newCurrent})
-              squares[newCurrent] = '🐼';
-              this.setState({squares: squares})
-            }}
-            >Move Right</button>
-          <button
-            className='Action'
-            onClick={()=>
-                    this.setState({squares: Array(9).fill(null), playerPosition: 0}
-                    )}
-            >Reset
-          </button>
         </div>
       </div>
     );
