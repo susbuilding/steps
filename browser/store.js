@@ -5,4 +5,9 @@ import createLogger from 'redux-logger'
 
 const logger = createLogger();
 
-export default createStore(reducer, applyMiddleware(thunkMiddleware, logger))
+const initialState = {
+    squares: Array(35).fill(null),
+    playerPosition: 0
+}
+
+export default createStore(reducer, initialState, applyMiddleware(thunkMiddleware, logger))

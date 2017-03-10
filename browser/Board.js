@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import Square from './Square';
 import Controls from './Controls';
+import { connect } from 'react-redux';
 
 
-export default class Board extends React.Component {
-  //gets the this.props.squares from Controls
+class Board extends React.Component {
 
   handleClick(i){
     //this will do something eventually for each square
   }
   renderSquare(i) {
     return <Square
-             value={this.props.squares[i]}
+              value={this.props.squares && this.props.squares[i]}
              onClick={() => this.handleClick(i)} />;
   }
   render() {
@@ -71,3 +71,13 @@ export default class Board extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+    return {
+        squares: state.squares,
+        playerPosition: state.playerPosition
+    }
+}
+
+export default connect(mapStateToProps)(Board)
+

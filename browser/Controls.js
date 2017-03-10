@@ -12,14 +12,12 @@ class Controls extends React.Component {
             playerPosition: 0
         };
 
-
     }
     render(){
-        console.log('PROPS', this.props)
+        console.log('CONTROLS PROPS', this.props)
         return (
         <div>
         <div>
-        <Board squares={this.state.squares} />
         </div>
 
             <DND />
@@ -104,5 +102,15 @@ const mapStateToProps = state => {
         playerPosition: state.playerPosition
     }
 }
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         action: (playerPosition) => {
+//             dispatch(
+//                 start(playerPosition)
+//             )
+//         }
+//     }
+// }
 
 export default connect(mapStateToProps)(Controls)
