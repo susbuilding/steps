@@ -9,7 +9,6 @@ class Controls extends React.Component {
         super();
     }
     render(){
-        console.log('CONTROLS PROPS', this.props)
         return (
         <div>
         <div>
@@ -98,7 +97,6 @@ class Controls extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('STATE', state)
     return {
         squares: state.squares,
         playerPosition: state.playerPosition

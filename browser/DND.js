@@ -47,6 +47,7 @@ class DND extends React.Component {
             height : '200px'
         }
         if (this.state.hovering) droppableStyle.backgroundColor = 'pink'
+        console.log('DROPPED', this.state.dropped)
         return (
             <div>
                 <ul>{draggable}</ul>
@@ -59,7 +60,11 @@ class DND extends React.Component {
                         onDragEnter={this.onDragEnter}
                         onDragLeave={this.onDragLeave}>
                         <div style={{textAlign:'center', lineHeight:'50px'}}>
-                        {this.state.dropped
+                        {this.state.dropped && this.state.dropped.map((title, index) => {
+                            return <button> {/** this should have a key**/}
+                            <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
+                            </button>
+                        })
                         }
                         </div>
                     </Droppable>

@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 class Game extends React.Component {
   render () {
-    console.log(this.props)
     return (
       <div className="game">
         <div className="game-board">
