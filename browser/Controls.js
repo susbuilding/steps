@@ -91,6 +91,12 @@ class Controls extends React.Component {
                 }
                 >Reset
             </button>
+            <button
+                className='Action'
+                onClick={()=> {}
+                }
+                >Run All
+            </button>
             </div>
         );
     }

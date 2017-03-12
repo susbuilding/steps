@@ -59,14 +59,14 @@ class DND extends React.Component {
                         onDrop={this.onDrop}
                         onDragEnter={this.onDragEnter}
                         onDragLeave={this.onDragLeave}>
-                        <div style={{textAlign:'center', lineHeight:'50px'}}>
+                        {/** <div style={{textAlign:'center', lineHeight:'50px'}}> **/}
                         {this.state.dropped && this.state.dropped.map((title, index) => {
                             return <button> {/** this should have a key**/}
-                            <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
+                                {title}
                             </button>
                         })
                         }
-                        </div>
+                        {/** </div> **/}
                     </Droppable>
                 </div>
             </div>
