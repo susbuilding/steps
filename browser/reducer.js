@@ -11,6 +11,7 @@ let squaresInitialState = {
 function PositionReducer (state = positionInitialState, action) {
 
     switch (action.type) {
+
         case 'UP':{
             return action.playerPosition
             }
