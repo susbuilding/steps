@@ -1,7 +1,7 @@
-export function start(playerPosition){
+export function start(squares){
     return {
         type: 'START',
-        playerPosition: playerPosition
+        squares: squares
     }
 }
 

@@ -11,9 +11,6 @@ let squaresInitialState = {
 function PositionReducer (state = positionInitialState, action) {
 
     switch (action.type) {
-        case 'START':{
-            return action.playerPosition
-            }
         case 'UP':{
             return action.playerPosition
             }
@@ -36,6 +33,10 @@ function SquaresReducer (state = squaresInitialState, action) {
     //let newState = Object.assign({}, state)
 
     switch (action.type) {
+        case 'START':{
+            return action.squares
+        }
+
         case 'RESET':{
            return action.squares
             //return newState

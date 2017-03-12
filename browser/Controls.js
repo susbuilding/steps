@@ -22,11 +22,14 @@ class Controls extends React.Component {
 
             <DND />
 
-            <button className='Action'
+             <button className='Action'
             onClick={()=> {
-                const squares = this.props.squares.slice();
-                squares[0] = '🐼';
-                this.setState({squares: squares})
+                const oldSquares = this.props.squares.slice();
+                oldSquares.shift();
+                oldSquares.unshift('🐼')
+                this.props.dispatch(
+                    start(oldSquares)
+                )
             }}
             >START
             </button>
@@ -103,14 +106,14 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         action: (playerPosition) => {
-//             dispatch(
-//                 start(playerPosition)
-//             )
-//         }
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        action: (playerPosition) => {
+            dispatch(
+                start(playerPosition)
+            )
+        }
+    }
+}
 
 export default connect(mapStateToProps)(Controls)
