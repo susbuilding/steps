@@ -18,11 +18,14 @@ class Controls extends React.Component {
 
              <button className='Action'
             onClick={()=> {
-                const oldSquares = this.props.squares.slice();
-                oldSquares.shift();
-                oldSquares.unshift('🐼')
+                // const oldSquares = this.props.squares.slice();
+                // oldSquares.shift();
+                // oldSquares.unshift('🐼')
+                const emptySquares = Array(35).fill(null);
+                 emptySquares.shift();
+                 emptySquares.unshift('🐼')
                 this.props.dispatch(
-                    start(oldSquares)
+                    start(emptySquares)
                 )
             }}
             >START
