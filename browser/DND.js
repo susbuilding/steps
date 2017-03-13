@@ -11,7 +11,8 @@ class DND extends React.Component {
         this.state = {
             draggable : ['MOVE UP','MOVE DOWN','MOVE LEFT','MOVE RIGHT'],
             dropped   : [],
-            hovering  : false
+            hovering  : false,
+            something: false
         }
 
         this.onDragEnter = this.onDragEnter.bind(this);
@@ -35,6 +36,56 @@ class DND extends React.Component {
     }
     render() {
         console.log('DND PROPS', this.props)
+        let moveUp = () => {
+            console.log('UP')
+            let current = this.props.playerPosition;
+                let newCurrent;
+                (current - 6) >= 0 ? newCurrent = (current - 6) : newCurrent = current;
+                const squares = this.props.squares.slice(); //copies the array
+                this.props.dispatch(up(newCurrent))
+                squares[current] = '';
+                squares[newCurrent] = '🐼';
+                this.props.dispatch(start(squares))
+        }
+        let moveDown = () => {
+            console.log('DOWN')
+            let current = this.props.playerPosition;
+                    let newCurrent;
+                    (current + 6) <= 35 ? newCurrent = (current + 6) : newCurrent = current;
+                    console.log('NEW CURRENT CALC', newCurrent, 'CURRENT', current)
+                    this.props.dispatch(down(newCurrent))
+                    const squares = this.props.squares.slice(); //copies the array
+                    squares[current] = '';
+                    squares[newCurrent] = '🐼';
+                    this.props.dispatch(start(squares))
+                    this.setState({
+                        something: !this.state.something
+                    })
+                    console.log("STATE", this.state)
+        }
+        let moveLeft = () => {
+            console.log('LEFT')
+            let current = this.props.playerPosition;
+                let newCurrent;
+                (current - 1) >= 0 ? newCurrent = (current - 1) : newCurrent = current;
+                this.props.dispatch(left(newCurrent))
+                    const squares = this.props.squares.slice(); //copies the array
+                    squares[current] = '';
+                    squares[newCurrent] = '🐼';
+                    this.props.dispatch(start(squares))
+        }
+        let moveRight = () => {
+            console.log('RIGHT')
+            let current = this.props.playerPosition;
+                let newCurrent;
+                (current + 1) <= 35 ? newCurrent = (current + 1) : newCurrent = current;
+                this.props.dispatch(right(newCurrent))
+                    const squares = this.props.squares.slice(); //copies the array
+                    squares[current] = '';
+                    squares[newCurrent] = '🐼';
+                    this.props.dispatch(start(squares))
+        }
+
         let draggable = this.state.draggable.map((title, index) => {
             return (
                 // <li key={title}>
@@ -56,6 +107,25 @@ class DND extends React.Component {
                 className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={() => {
                     console.log('DROPPED', this.state.dropped)
+                    this.state.dropped.forEach(drop => {
+                        console.log(drop)
+                        if (drop === "MOVE UP") {
+                            // console.log('up')
+                            moveUp()
+                        }
+                        if (drop === "MOVE DOWN") {
+                            //  console.log('down')
+                            moveDown()
+                        }
+                        if (drop === "MOVE LEFT") {
+                            // console.log('left')
+                           moveLeft()
+                        }
+                        if (drop === "MOVE RIGHT") {
+                            // console.log('right')
+                            moveRight()
+                        }
+                    })
                 }
                 }
                 >Run All
