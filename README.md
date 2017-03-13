@@ -4,4 +4,4 @@ Steps is a game designed for kids to learn code and problem solving. The idea is
 
 ![](http://i67.tinypic.com/13znbid.png)
 
-I created this using React, React-Redux, react-drag-and-drop, HTML, CSS, and Express.
+I created this using React, React-Redux, react-drag-and-drop, HTML, CSS, Express, and pandas.
