@@ -15,8 +15,7 @@ class Controls extends React.Component {
         </div>
 
             <DND />
-
-             <button className='Action'
+             <button className='Action' type="button" className="btn btn-primary btn-xs"
             onClick={()=> {
                 // const oldSquares = this.props.squares.slice();
                 // oldSquares.shift();
@@ -24,6 +23,7 @@ class Controls extends React.Component {
                 const emptySquares = Array(35).fill(null);
                  emptySquares.shift();
                  emptySquares.unshift('🐼')
+                 emptySquares.push('🎋')
                 this.props.dispatch(
                     start(emptySquares)
                 )
@@ -32,7 +32,7 @@ class Controls extends React.Component {
             </button>
 
             <button
-                className='Action'
+                className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={()=>{
                 let current = this.props.playerPosition;
                 let newCurrent;
@@ -46,7 +46,7 @@ class Controls extends React.Component {
                 >Move Up</button>
 
              <button
-                className='Action'
+                className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={()=>{
                     let current = this.props.playerPosition;
                     let newCurrent;
@@ -60,7 +60,7 @@ class Controls extends React.Component {
                 >Move Down</button>
 
             <button
-                className='Action'
+                className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={()=>{
                 let current = this.props.playerPosition;
                 let newCurrent;
@@ -73,7 +73,7 @@ class Controls extends React.Component {
                 }}
                 >Move Left</button>
             <button
-                className='Action'
+                className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={()=>{
                 let current = this.props.playerPosition;
                 let newCurrent;
@@ -85,17 +85,17 @@ class Controls extends React.Component {
                     this.props.dispatch(start(squares))
                 }}
                 >Move Right</button>
+            {/** <button
+            //     className='Action' type="button" className="btn btn-primary btn-xs"
+            //     onClick={()=> {
+            //         this.props.dispatch(
+            //             start(Array(35).fill(null))
+            //             )}
+            //     }
+            //     >Reset
+            // </button> **/}
             <button
-                className='Action'
-                onClick={()=> {
-                    this.props.dispatch(
-                        start(Array(35).fill(null))
-                        )}
-                }
-                >Reset
-            </button>
-            <button
-                className='Action'
+                className='Action' type="button" className="btn btn-primary btn-xs"
                 onClick={()=> {}
                 }
                 >Run All

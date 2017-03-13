@@ -38,7 +38,7 @@ class DND extends React.Component {
                 // <li key={title}>
                 //     <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
                 // </li>
-                <button key={title}>
+                <button type="button" className="btn btn-primary btn-sm" key={title}>
                 <Draggable enabled={index < 4} type="item" data={title}>{title}</Draggable>
                 </button>
             )
@@ -61,7 +61,7 @@ class DND extends React.Component {
                         onDragLeave={this.onDragLeave}>
                         {/** <div style={{textAlign:'center', lineHeight:'50px'}}> **/}
                         {this.state.dropped && this.state.dropped.map((title, index) => {
-                            return <button type="button" className="btn btn-primary"> {/** this should have a key**/}
+                            return <button type="button" className="btn btn-primary btn-sm"> {/** this should have a key**/}
                                 {title}
                             </button>
                         })
