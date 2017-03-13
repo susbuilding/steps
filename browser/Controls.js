@@ -22,9 +22,13 @@ class Controls extends React.Component {
                 'move' + (step.move).slice(0,1).toUpperCase() + (step.move).slice(1) + '()' :
                 'Empty Board';
             return (
+                <div>
+                <div> 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣  </div>
+                <div>STEPS:</div>
                 <li key={move}>
                 {desc}
                 </li>
+                </div>
             );
             });
         return (

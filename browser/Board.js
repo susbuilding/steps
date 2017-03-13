@@ -15,7 +15,7 @@ class Board extends React.Component {
              onClick={() => this.handleClick(i)} />;
   }
   render() {
-    const status = '';
+    const status = 'Try to use the least # of 👣  to get 🐼  to the 🎋';
     return (
       <div>
         <div className="status">{status}</div>
