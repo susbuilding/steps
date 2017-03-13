@@ -7,8 +7,30 @@ import DND from './DND';
 class Controls extends React.Component {
     constructor(){
         super();
+        this.state = {
+        history: [{
+            move: null
+        }],
+        stepNumber: 0
+        }
+    }
+    jumpTo(step) {
+    this.setState({
+        stepNumber: step
+    });
     }
     render(){
+            const history = this.state.history;
+            const moves = history.map((step, move) => {
+            const desc = move ?
+                'move' + (step.move).slice(0,1).toUpperCase() + (step.move).slice(1) + '()' :
+                'Empty Board';
+            return (
+                <li key={move}>
+                <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+                </li>
+            );
+            });
         return (
         <div>
         <div>
@@ -27,6 +49,11 @@ class Controls extends React.Component {
                 this.props.dispatch(
                     start(emptySquares)
                 )
+                this.setState({
+                    history: history.concat([{
+                    move: 'start'
+                }])
+                })
             }}
             >START
             </button>
@@ -42,6 +69,11 @@ class Controls extends React.Component {
                 squares[current] = '';
                 squares[newCurrent] = '🐼';
                 this.props.dispatch(start(squares))
+                this.setState({
+                    history: history.concat([{
+                    move: 'up'
+                }])
+                })
                 }}
                 >Move Up</button>
 
@@ -56,6 +88,11 @@ class Controls extends React.Component {
                     squares[current] = '';
                     squares[newCurrent] = '🐼';
                     this.props.dispatch(start(squares))
+                    this.setState({
+                    history: history.concat([{
+                    move: 'down'
+                }])
+                })
                 }}
                 >Move Down</button>
 
@@ -70,7 +107,13 @@ class Controls extends React.Component {
                     squares[current] = '';
                     squares[newCurrent] = '🐼';
                     this.props.dispatch(start(squares))
+                    this.setState({
+                    history: history.concat([{
+                    move: 'left'
+                }])
+                })
                 }}
+
                 >Move Left</button>
             <button
                 className='Action' type="button" className="btn btn-primary btn-xs"
@@ -83,6 +126,11 @@ class Controls extends React.Component {
                     squares[current] = '';
                     squares[newCurrent] = '🐼';
                     this.props.dispatch(start(squares))
+                    this.setState({
+                    history: history.concat([{
+                    move: 'right'
+                }])
+                })
                 }}
                 >Move Right</button>
             {/** <button
@@ -100,7 +148,11 @@ class Controls extends React.Component {
                 }
                 >Run All
             </button>
+            <div>
+            <ol>{moves}</ol>
             </div>
+            </div>
+
         );
     }
 }

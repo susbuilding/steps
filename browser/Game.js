@@ -5,6 +5,7 @@ import Square from './Square';
 import { connect } from 'react-redux';
 
 class Game extends React.Component {
+
   render () {
     return (
       <div className="game">

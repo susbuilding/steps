@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Draggable from './Draggable';
 import Droppable from './Droppable';
 import Controls from './Controls';
+import { start, up, down, left, right, reset} from './action-creators';
 import { connect } from 'react-redux';
 
 class DND extends React.Component {
@@ -33,6 +34,7 @@ class DND extends React.Component {
         // },1500)
     }
     render() {
+        console.log('DND PROPS', this.props)
         let draggable = this.state.draggable.map((title, index) => {
             return (
                 // <li key={title}>
@@ -51,6 +53,12 @@ class DND extends React.Component {
         return (
             <div>
                 <ul>{draggable}</ul>
+                 <button
+                className='Action' type="button" className="btn btn-primary btn-xs"
+                onClick={()=> {}
+                }
+                >Run All
+                </button>
                 <div style={{border:'1px solid black', width:'400px',height:'200px', position:'relative'}}>
                     <span style={{position:'absolute',float:'left',color:'gray'}}>Drop here...</span>
                     <Droppable
@@ -61,7 +69,10 @@ class DND extends React.Component {
                         onDragLeave={this.onDragLeave}>
                         {/** <div style={{textAlign:'center', lineHeight:'50px'}}> **/}
                         {this.state.dropped && this.state.dropped.map((title, index) => {
-                            return <button type="button" className="btn btn-primary btn-sm"> {/** this should have a key**/}
+                            return <button
+                                type="button"
+                                className="btn btn-primary btn-sm"
+                                > {/** this should have a key**/}
                                 {title}
                             </button>
                         })
