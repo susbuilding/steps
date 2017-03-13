@@ -23,8 +23,6 @@ class Controls extends React.Component {
                 'Empty Board';
             return (
                 <div>
-                <div> 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣  </div>
-                <div>STEPS:</div>
                 <li key={move}>
                 {desc}
                 </li>
@@ -147,6 +145,7 @@ class Controls extends React.Component {
                 >Run All
             </button>
             <div>
+            <div> 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣 👣  </div>
             <ol>{moves}</ol>
             </div>
             </center>
