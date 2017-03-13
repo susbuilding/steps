@@ -103,8 +103,8 @@ class DND extends React.Component {
         return (
             <div>
                 <ul>{draggable}</ul>
-                 <button
-                className='Action' type="button" className="btn btn-primary btn-xs"
+                 <span><center><button
+                className='Action' type="button" className="btn btn-primary btn-sm"
                 onClick={() => {
                     console.log('DROPPED', this.state.dropped)
                     this.state.dropped.forEach(drop => {
@@ -129,7 +129,8 @@ class DND extends React.Component {
                 }
                 }
                 >Run All
-                </button>
+                </button></center>
+                </span>
                 <div style={{border:'1px solid black', width:'400px',height:'200px', position:'relative'}}>
                     <span style={{position:'absolute',float:'left',color:'gray'}}>Drop here...</span>
                     <Droppable

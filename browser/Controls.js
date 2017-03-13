@@ -33,6 +33,7 @@ class Controls extends React.Component {
         </div>
 
             <DND />
+            <div><center>
              <button className='Action' type="button" className="btn btn-primary btn-xs"
             onClick={()=> {
                 const emptySquares = Array(35).fill(null);
@@ -143,6 +144,8 @@ class Controls extends React.Component {
             </button>
             <div>
             <ol>{moves}</ol>
+            </div>
+            </center>
             </div>
             </div>
 
