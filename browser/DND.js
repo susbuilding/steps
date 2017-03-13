@@ -49,13 +49,14 @@ class DND extends React.Component {
             height : '200px'
         }
         if (this.state.hovering) droppableStyle.backgroundColor = 'pink'
-        console.log('DROPPED', this.state.dropped)
         return (
             <div>
                 <ul>{draggable}</ul>
                  <button
                 className='Action' type="button" className="btn btn-primary btn-xs"
-                onClick={()=> {}
+                onClick={() => {
+                    console.log('DROPPED', this.state.dropped)
+                }
                 }
                 >Run All
                 </button>

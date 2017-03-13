@@ -14,12 +14,8 @@ class Controls extends React.Component {
         stepNumber: 0
         }
     }
-    jumpTo(step) {
-    this.setState({
-        stepNumber: step
-    });
-    }
     render(){
+        console.log('control PROPS', this.props)
             const history = this.state.history;
             const moves = history.map((step, move) => {
             const desc = move ?
@@ -27,7 +23,7 @@ class Controls extends React.Component {
                 'Empty Board';
             return (
                 <li key={move}>
-                <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+                {desc}
                 </li>
             );
             });
@@ -39,9 +35,6 @@ class Controls extends React.Component {
             <DND />
              <button className='Action' type="button" className="btn btn-primary btn-xs"
             onClick={()=> {
-                // const oldSquares = this.props.squares.slice();
-                // oldSquares.shift();
-                // oldSquares.unshift('🐼')
                 const emptySquares = Array(35).fill(null);
                  emptySquares.shift();
                  emptySquares.unshift('🐼')
@@ -65,7 +58,7 @@ class Controls extends React.Component {
                 let newCurrent;
                 (current - 6) >= 0 ? newCurrent = (current - 6) : newCurrent = current;
                 const squares = this.props.squares.slice(); //copies the array
-                this.props.dispatch(down(newCurrent))
+                this.props.dispatch(up(newCurrent))
                 squares[current] = '';
                 squares[newCurrent] = '🐼';
                 this.props.dispatch(start(squares))
@@ -102,7 +95,7 @@ class Controls extends React.Component {
                 let current = this.props.playerPosition;
                 let newCurrent;
                 (current - 1) >= 0 ? newCurrent = (current - 1) : newCurrent = current;
-                this.props.dispatch(down(newCurrent))
+                this.props.dispatch(left(newCurrent))
                     const squares = this.props.squares.slice(); //copies the array
                     squares[current] = '';
                     squares[newCurrent] = '🐼';
@@ -121,7 +114,7 @@ class Controls extends React.Component {
                 let current = this.props.playerPosition;
                 let newCurrent;
                 (current + 1) <= 35 ? newCurrent = (current + 1) : newCurrent = current;
-                this.props.dispatch(down(newCurrent))
+                this.props.dispatch(right(newCurrent))
                     const squares = this.props.squares.slice(); //copies the array
                     squares[current] = '';
                     squares[newCurrent] = '🐼';
