@@ -61,7 +61,7 @@ class DND extends React.Component {
                         onDragLeave={this.onDragLeave}>
                         {/** <div style={{textAlign:'center', lineHeight:'50px'}}> **/}
                         {this.state.dropped && this.state.dropped.map((title, index) => {
-                            return <button> {/** this should have a key**/}
+                            return <button type="button" className="btn btn-primary"> {/** this should have a key**/}
                                 {title}
                             </button>
                         })
